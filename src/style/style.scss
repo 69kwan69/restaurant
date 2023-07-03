@@ -1,0 +1,211 @@
+// Variables
+// Color
+$clr-accent: #a51d33;
+$clr-dark: #404042;
+
+
+// Utility Classes & Mixins
+@mixin img-border {
+    border: 5px solid $clr-accent;
+    border-radius: 40% 60% 58% 42% / 36% 47% 53% 64%;
+}
+
+.big-text {
+    display: block;
+    font-weight: bold;
+    color: $clr-accent;
+    font-size: 3rem;
+}
+
+.title::before,
+.title::after {
+    content: '—';
+    color: $clr-dark;
+    margin: .3em;
+}
+
+.active {
+    color: $clr-accent;
+}
+
+
+
+// Initial settings
+body {
+    position: relative;
+    padding: 5rem 0;
+    color: $clr-dark;
+}
+
+
+// Navigation bar
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+    padding: 1rem 3rem 1rem 1rem;
+    width: 100%;
+    height: fit-content;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .highlight {
+            color: $clr-accent;
+        }
+    }
+
+    .tab-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+
+        .tab {
+            transition: .1s;
+            cursor: pointer;
+
+            &:hover {
+                border-bottom: 2px solid $clr-accent;
+            }
+        }
+    }
+}
+
+
+// Home
+.home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    img {
+        margin: auto 5rem;
+        width: 300;
+    }
+
+    .text {
+        margin: auto 8rem;
+        text-align: right;
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: normal;
+
+        }
+
+        button {
+            margin-top: 1rem;
+            border: none;
+            border-radius: 5em;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+            background: $clr-accent;
+            color: white;
+            padding: .7em 1em;
+
+            font-size: 1.3rem;
+
+            cursor: pointer;
+
+            &:hover {
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+        }
+    }
+}
+
+
+// Menu
+.menu {
+    text-align: center;
+    padding: 2rem 15rem;
+
+    &-list {
+        display: flex;
+        gap: 3rem;
+        flex-direction: column;
+
+        li {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            gap: 0 2rem;
+
+            img {
+                width: 250px;
+                aspect-ratio: 1 / 1;
+
+                grid-row: span 2;
+                @include img-border();
+
+                object-fit: cover;
+                cursor: pointer;
+            }
+
+            h2 {
+                color: $clr-accent;
+                text-align: left;
+                align-self: end;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+
+                }
+            }
+
+            p {
+                text-align: left;
+            }
+        }
+    }
+}
+
+
+// About
+.about {
+    padding: 0 10rem;
+
+    h1 {
+        text-align: center;
+        margin: 2rem;
+    }
+
+    .introduction {
+        display: grid;
+        grid-template-columns: 2fr 5fr;
+        gap: 2rem;
+
+
+        img {
+            grid-row: span 2;
+            @include img-border();
+        }
+
+        h2 {
+            align-self: center;
+            font-size: 2rem;
+
+            .highlight {
+                color: $clr-accent;
+            }
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+        }
+    }
+}
