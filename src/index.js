@@ -15,6 +15,8 @@ document.body.addEventListener('click', e => {
     const tabData = e.target.dataset.tab;
     const main = document.querySelector('main');
 
+    if (!tabData) return;
+
     // Clear and display corresponding content
     if (tabData === 'home') {
         main.innerHTML = '';
